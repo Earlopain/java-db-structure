@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="db-structure">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>net.c5h8no4na.entity.e621.Pool</class>
+		<class>net.c5h8no4na.entity.e621.PoolPost</class>
+		<class>net.c5h8no4na.entity.e621.Post</class>
+		<class>net.c5h8no4na.entity.e621.Source</class>
+		<class>net.c5h8no4na.entity.e621.Tag</class>
+		<class>net.c5h8no4na.entity.e621.User</class>
+		<class>net.c5h8no4na.entity.e621.converter.ExtensionConverter</class>
+		<class>net.c5h8no4na.entity.e621.converter.LevelConverter</class>
+		<class>net.c5h8no4na.entity.e621.converter.RatingConverter</class>
+		<class>net.c5h8no4na.entity.e621.converter.TagTypeConverter</class>
+	</persistence-unit>
+</persistence>
