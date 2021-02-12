@@ -1,6 +1,5 @@
 package net.c5h8no4na.entity.e621;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -12,20 +11,19 @@ import javax.persistence.Table;
 public class PostFile {
 
 	@Id
-	@Column(name = "post_id")
-	private Integer postId;
+	private Integer id;
 
 	private byte[] file;
 
 	@OneToOne(fetch = FetchType.LAZY)
 	private Post post;
 
-	public Integer getPostId() {
-		return this.postId;
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setPostId(Integer postId) {
-		this.postId = postId;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public byte[] getFile() {
