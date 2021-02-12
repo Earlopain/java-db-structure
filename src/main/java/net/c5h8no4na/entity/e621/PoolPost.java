@@ -1,6 +1,7 @@
 package net.c5h8no4na.entity.e621;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -12,13 +13,21 @@ public class PoolPost {
 	@Id
 	private Integer id;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Pool pool;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Post post;
 
 	private Integer position;
+
+	public Integer getId() {
+		return this.id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Integer getPosition() {
 		return this.position;

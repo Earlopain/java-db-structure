@@ -74,7 +74,7 @@ public class User {
 		return this.level;
 	}
 
-	public void setLevelId(Level level) {
+	public void setLevel(Level level) {
 		this.level = level;
 	}
 

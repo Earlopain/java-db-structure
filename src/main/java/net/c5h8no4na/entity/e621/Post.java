@@ -5,12 +5,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import net.c5h8no4na.entity.e621.enums.Extension;
@@ -29,11 +31,11 @@ public class Post {
 	@Column(name = "rating_id")
 	private Rating rating;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "approver_id")
 	private User approver;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "uploader_id")
 	private User uploader;
 
@@ -70,8 +72,6 @@ public class Post {
 
 	private float duration;
 
-	private byte[] image;
-
 	@ManyToMany
 	@JoinTable(name = "post_children", joinColumns = { @JoinColumn(name = "post_id", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "child_id", referencedColumnName = "id") })
@@ -85,6 +85,9 @@ public class Post {
 
 	@OneToMany(mappedBy = "post")
 	private List<PoolPost> poolPosts;
+
+	@OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
+	private PostFile postFile;
 
 	public Integer getId() {
 		return this.id;
@@ -122,7 +125,7 @@ public class Post {
 		return this.extension;
 	}
 
-	public void setExtensionId(Extension extension) {
+	public void setExtension(Extension extension) {
 		this.extension = extension;
 	}
 
@@ -142,12 +145,12 @@ public class Post {
 		this.height = height;
 	}
 
-	public byte[] getImage() {
-		return this.image;
+	public PostFile getPostFile() {
+		return this.postFile;
 	}
 
-	public void setImage(byte[] image) {
-		this.image = image;
+	public void setPostFile(PostFile postFile) {
+		this.postFile = postFile;
 	}
 
 	public String getMd5() {
@@ -170,7 +173,7 @@ public class Post {
 		return this.rating;
 	}
 
-	public void setRatingId(Rating rating) {
+	public void setRating(Rating rating) {
 		this.rating = rating;
 	}
 

@@ -1,6 +1,7 @@
 package net.c5h8no4na.entity.e621;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -14,7 +15,7 @@ public class Source {
 
 	private String source;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Post post;
 
 	public Integer getId() {

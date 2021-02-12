@@ -8,6 +8,7 @@
 		<class>net.c5h8no4na.entity.e621.Pool</class>
 		<class>net.c5h8no4na.entity.e621.PoolPost</class>
 		<class>net.c5h8no4na.entity.e621.Post</class>
+		<class>net.c5h8no4na.entity.e621.PostFile</class>
 		<class>net.c5h8no4na.entity.e621.Source</class>
 		<class>net.c5h8no4na.entity.e621.Tag</class>
 		<class>net.c5h8no4na.entity.e621.User</class>
