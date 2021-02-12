@@ -24,4 +24,8 @@ public enum Extension {
 		return Stream.of(Extension.values()).filter(e -> e.getId().equals(id)).findFirst();
 	}
 
+	public static Optional<Extension> from(String input) {
+		return Stream.of(Extension.values()).filter(e -> e.name().toLowerCase().equals(input.toLowerCase())).findFirst();
+	}
+
 }

@@ -21,4 +21,17 @@ public enum Rating {
 	public static Optional<Rating> from(Integer id) {
 		return Stream.of(Rating.values()).filter(e -> e.getId().equals(id)).findFirst();
 	}
+
+	public static Optional<Rating> from(String input) {
+		switch (input.toLowerCase()) {
+		case "s":
+			return Optional.of(Rating.SAFE);
+		case "q":
+			return Optional.of(Rating.QUESTIONABLE);
+		case "e":
+			return Optional.of(Rating.EXPLICIT);
+		default:
+			return Stream.of(Rating.values()).filter(e -> e.name().toLowerCase().equals(input.toLowerCase())).findFirst();
+		}
+	}
 }
