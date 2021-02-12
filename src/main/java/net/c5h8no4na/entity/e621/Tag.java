@@ -1,5 +1,6 @@
 package net.c5h8no4na.entity.e621;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -26,7 +27,7 @@ public class Tag {
 
 	@ManyToMany
 	@JoinTable(name = "post_tags", joinColumns = { @JoinColumn(name = "tag_id") }, inverseJoinColumns = { @JoinColumn(name = "post_id") })
-	private List<Post> posts;
+	private List<Post> posts = new ArrayList<>();
 
 	public Integer getId() {
 		return this.id;

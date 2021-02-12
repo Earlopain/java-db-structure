@@ -1,6 +1,7 @@
 package net.c5h8no4na.entity.e621;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -70,21 +71,21 @@ public class Post {
 
 	private String description;
 
-	private float duration;
+	private Float duration;
 
 	@ManyToMany
 	@JoinTable(name = "post_children", joinColumns = { @JoinColumn(name = "post_id", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "child_id", referencedColumnName = "id") })
-	private List<Post> children;
+	private List<Post> children = new ArrayList<>();
 
 	@OneToMany(mappedBy = "post")
-	private List<Source> sources;
+	private List<Source> sources = new ArrayList<>();
 
 	@ManyToMany(mappedBy = "posts")
-	private List<Tag> tags;
+	private List<Tag> tags = new ArrayList<>();
 
 	@OneToMany(mappedBy = "post")
-	private List<PoolPost> poolPosts;
+	private List<PoolPost> poolPosts = new ArrayList<>();
 
 	@OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
 	private PostFile postFile;
@@ -117,7 +118,7 @@ public class Post {
 		return this.duration;
 	}
 
-	public void setDuration(float duration) {
+	public void setDuration(Float duration) {
 		this.duration = duration;
 	}
 

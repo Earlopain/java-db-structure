@@ -1,5 +1,6 @@
 package net.c5h8no4na.entity.e621;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ public class Pool {
 	private String name;
 
 	@OneToMany(mappedBy = "pool")
-	private List<PoolPost> poolPosts;
+	private List<PoolPost> poolPosts = new ArrayList<>();
 
 	public Integer getId() {
 		return this.id;

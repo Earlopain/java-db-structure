@@ -1,6 +1,7 @@
 package net.c5h8no4na.entity.e621;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -33,10 +34,10 @@ public class User {
 	private Boolean isBanned;
 
 	@OneToMany(mappedBy = "approver")
-	private List<Post> approvedPosts;
+	private transient List<Post> approvedPosts = new ArrayList<>();
 
 	@OneToMany(mappedBy = "uploader")
-	private List<Post> uploadedPosts;
+	private transient List<Post> uploadedPosts = new ArrayList<>();
 
 	public Integer getId() {
 		return this.id;
