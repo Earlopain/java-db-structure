@@ -10,14 +10,14 @@ import net.c5h8no4na.entity.e621.enums.Level;
 @Converter(autoApply = true)
 public class LevelConverter implements AttributeConverter<Level, Integer> {
 
-    @Override
-    public Integer convertToDatabaseColumn(Level level) {
-	Objects.requireNonNull(level);
-	return level.getId();
-    }
+	@Override
+	public Integer convertToDatabaseColumn(Level level) {
+		Objects.requireNonNull(level);
+		return level.getId();
+	}
 
-    @Override
-    public Level convertToEntityAttribute(Integer dbData) {
-	return Level.from(dbData).get();
-    }
+	@Override
+	public Level convertToEntityAttribute(Integer dbData) {
+		return Level.from(dbData).get();
+	}
 }

@@ -16,49 +16,48 @@ import net.c5h8no4na.entity.e621.enums.TagType;
 @Table(name = "tags")
 public class Tag {
 
-    @Id
-    private Integer id;
+	@Id
+	private Integer id;
 
-    @Column(name = "tag_type_id")
-    private TagType tagType;
+	@Column(name = "tag_type_id")
+	private TagType tagType;
 
-    private String text;
+	private String text;
 
-    @ManyToMany
-    @JoinTable(name = "post_tags", joinColumns = { @JoinColumn(name = "tag_id") }, inverseJoinColumns = {
-	    @JoinColumn(name = "post_id") })
-    private List<Post> posts;
+	@ManyToMany
+	@JoinTable(name = "post_tags", joinColumns = { @JoinColumn(name = "tag_id") }, inverseJoinColumns = { @JoinColumn(name = "post_id") })
+	private List<Post> posts;
 
-    public Integer getId() {
-	return this.id;
-    }
+	public Integer getId() {
+		return this.id;
+	}
 
-    public void setId(Integer id) {
-	this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public TagType getTagType() {
-	return this.tagType;
-    }
+	public TagType getTagType() {
+		return this.tagType;
+	}
 
-    public void setTagType(TagType tagType) {
-	this.tagType = tagType;
-    }
+	public void setTagType(TagType tagType) {
+		this.tagType = tagType;
+	}
 
-    public String getText() {
-	return this.text;
-    }
+	public String getText() {
+		return this.text;
+	}
 
-    public void setText(String text) {
-	this.text = text;
-    }
+	public void setText(String text) {
+		this.text = text;
+	}
 
-    public List<Post> getPosts() {
-	return this.posts;
-    }
+	public List<Post> getPosts() {
+		return this.posts;
+	}
 
-    public void setPosts(List<Post> posts) {
-	this.posts = posts;
-    }
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 
 }

@@ -9,36 +9,36 @@ import javax.persistence.Table;
 @Table(name = "sources")
 public class Source {
 
-    @Id
-    private Integer id;
+	@Id
+	private Integer id;
 
-    private String source;
+	private String source;
 
-    @ManyToOne
-    private Post post;
+	@ManyToOne
+	private Post post;
 
-    public Integer getId() {
-	return this.id;
-    }
+	public Integer getId() {
+		return this.id;
+	}
 
-    public void setId(Integer id) {
-	this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getSource() {
-	return this.source;
-    }
+	public String getSource() {
+		return this.source;
+	}
 
-    public void setSource(String source) {
-	this.source = source;
-    }
+	public void setSource(String source) {
+		this.source = source;
+	}
 
-    public Post getPost() {
-	return this.post;
-    }
+	public Post getPost() {
+		return this.post;
+	}
 
-    public void setPost(Post post) {
-	this.post = post;
-    }
+	public void setPost(Post post) {
+		this.post = post;
+	}
 
 }

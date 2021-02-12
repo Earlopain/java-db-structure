@@ -7,42 +7,41 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pool_posts")
-
 public class PoolPost {
-    
-    @Id
-    private Integer id;
 
-    @ManyToOne
-    private Pool pool;
+	@Id
+	private Integer id;
 
-    @ManyToOne
-    private Post post;
+	@ManyToOne
+	private Pool pool;
 
-    private Integer position;
+	@ManyToOne
+	private Post post;
 
-    public Integer getPosition() {
-	return this.position;
-    }
+	private Integer position;
 
-    public void setPosition(Integer position) {
-	this.position = position;
-    }
+	public Integer getPosition() {
+		return this.position;
+	}
 
-    public Pool getPool() {
-	return this.pool;
-    }
+	public void setPosition(Integer position) {
+		this.position = position;
+	}
 
-    public void setPool(Pool pool) {
-	this.pool = pool;
-    }
+	public Pool getPool() {
+		return this.pool;
+	}
 
-    public Post getPost() {
-	return this.post;
-    }
+	public void setPool(Pool pool) {
+		this.pool = pool;
+	}
 
-    public void setPost(Post post) {
-	this.post = post;
-    }
+	public Post getPost() {
+		return this.post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
+	}
 
 }
