@@ -40,8 +40,9 @@ public class Post {
 	@JoinColumn(name = "uploader_id")
 	private User uploader;
 
-	@Column(name = "parent_id")
-	private Integer parentId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "parent_id")
+	private Post parent;
 
 	private String md5;
 
@@ -162,12 +163,12 @@ public class Post {
 		this.md5 = md5;
 	}
 
-	public Integer getParentId() {
-		return this.parentId;
+	public Post getParent() {
+		return this.parent;
 	}
 
-	public void setParentId(Integer parentId) {
-		this.parentId = parentId;
+	public void setParent(Post parent) {
+		this.parent = parent;
 	}
 
 	public Rating getRating() {
@@ -258,14 +259,14 @@ public class Post {
 
 	public Post addChild(Post child) {
 		getChildren().add(child);
-		child.setParentId(child.getId());
+		child.setParent(child);
 
 		return child;
 	}
 
 	public Post removeChild(Post child) {
 		getChildren().remove(child);
-		child.setParentId(null);
+		child.setParent(null);
 
 		return child;
 	}
