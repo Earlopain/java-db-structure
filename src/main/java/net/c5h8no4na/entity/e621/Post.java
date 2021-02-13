@@ -115,7 +115,7 @@ public class Post {
 		this.description = description;
 	}
 
-	public float getDuration() {
+	public Float getDuration() {
 		return this.duration;
 	}
 
