@@ -82,7 +82,9 @@ public class Post {
 	@OneToMany(mappedBy = "post")
 	private List<Source> sources = new ArrayList<>();
 
-	@ManyToMany(mappedBy = "posts")
+	@ManyToMany
+	@JoinTable(name = "post_tags", joinColumns = { @JoinColumn(name = "post_id", referencedColumnName = "id") }, inverseJoinColumns = {
+			@JoinColumn(name = "tag_id", referencedColumnName = "id") })
 	private List<Tag> tags = new ArrayList<>();
 
 	@OneToMany(mappedBy = "post")
