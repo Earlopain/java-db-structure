@@ -34,10 +34,10 @@ public class User {
 	private Boolean isBanned;
 
 	@OneToMany(mappedBy = "approver")
-	private transient List<Post> approvedPosts = new ArrayList<>();
+	private List<Post> approvedPosts = new ArrayList<>();
 
 	@OneToMany(mappedBy = "uploader")
-	private transient List<Post> uploadedPosts = new ArrayList<>();
+	private List<Post> uploadedPosts = new ArrayList<>();
 
 	public Integer getId() {
 		return this.id;
