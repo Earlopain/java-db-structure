@@ -20,6 +20,22 @@ public enum Extension {
 		return id;
 	}
 
+	public String toMediaType() {
+		switch (this) {
+		case JPG:
+			return "image/jpeg";
+		case PNG:
+			return "image/png";
+		case WEBM:
+			return "video/webm";
+		case GIF:
+			return "image/gif";
+		case SWF:
+			return "application/x-shockwave-flash";
+		}
+		return null;
+	}
+
 	public static Optional<Extension> from(Integer id) {
 		return Stream.of(Extension.values()).filter(e -> e.getId().equals(id)).findFirst();
 	}
