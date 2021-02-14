@@ -3,6 +3,7 @@ package net.c5h8no4na.entity.e621;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -117,8 +118,8 @@ public class Post {
 		this.description = description;
 	}
 
-	public Float getDuration() {
-		return this.duration;
+	public Optional<Float> getDuration() {
+		return Optional.ofNullable(this.duration);
 	}
 
 	public void setDuration(Float duration) {
@@ -149,8 +150,8 @@ public class Post {
 		this.height = height;
 	}
 
-	public PostFile getPostFile() {
-		return this.postFile;
+	public Optional<PostFile> getPostFile() {
+		return Optional.ofNullable(this.postFile);
 	}
 
 	public void setPostFile(PostFile postFile) {
@@ -165,8 +166,8 @@ public class Post {
 		this.md5 = md5;
 	}
 
-	public Post getParent() {
-		return this.parent;
+	public Optional<Post> getParent() {
+		return Optional.ofNullable(this.parent);
 	}
 
 	public void setParent(Post parent) {
@@ -273,8 +274,8 @@ public class Post {
 		return child;
 	}
 
-	public User getApprover() {
-		return this.approver;
+	public Optional<User> getApprover() {
+		return Optional.ofNullable(this.approver);
 	}
 
 	public void setApprover(User approver) {

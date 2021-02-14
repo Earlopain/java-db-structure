@@ -3,6 +3,7 @@ package net.c5h8no4na.entity.e621;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,8 +48,8 @@ public class User {
 		this.id = id;
 	}
 
-	public Integer getAvatarId() {
-		return this.avatarId;
+	public Optional<Integer> getAvatarId() {
+		return Optional.ofNullable(this.avatarId);
 	}
 
 	public void setAvatarId(Integer avatarId) {
