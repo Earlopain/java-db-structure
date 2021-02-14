@@ -94,6 +94,9 @@ public class Post {
 	@OneToOne(mappedBy = "post", fetch = FetchType.LAZY)
 	private PostFile postFile;
 
+	@OneToMany(mappedBy = "avatar", fetch = FetchType.LAZY)
+	private List<User> usersWithAvatar = new ArrayList<>();
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -318,6 +321,28 @@ public class Post {
 
 	public void setTags(List<Tag> tags) {
 		this.tags = tags;
+	}
+
+	public List<User> getUsersWithAvatar() {
+		return this.usersWithAvatar;
+	}
+
+	public void setUsersWithAvatar(List<User> users) {
+		this.usersWithAvatar = users;
+	}
+
+	public User setAvatarForUser(User user) {
+		getUsersWithAvatar().add(user);
+		user.setAvatar(this);
+
+		return user;
+	}
+
+	public User removeAvatarForUser(User user) {
+		getUsersWithAvatar().remove(user);
+		user.setAvatar(null);
+
+		return user;
 	}
 
 }

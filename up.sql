@@ -71,7 +71,8 @@ CREATE TABLE users (
 	created_at timestamp(0) NOT NULL,
 	is_banned bool NOT NULL,
 	CONSTRAINT users_pk PRIMARY KEY (id),
-	CONSTRAINT users_fk FOREIGN KEY (level_id) REFERENCES levels(id)
+	CONSTRAINT users_fk FOREIGN KEY (level_id) REFERENCES levels(id),
+    CONSTRAINT users_fk_1 FOREIGN KEY (avatar_id) REFERENCES posts(id)
 );
 
 INSERT INTO tag_types (id,"text") VALUES

@@ -7,7 +7,10 @@ import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,8 +23,9 @@ public class User {
 	@Id
 	private Integer id;
 
-	@Column(name = "avatar_id")
-	private Integer avatarId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "avatar_id")
+	private Post avatar;
 
 	@Column(name = "level_id")
 	private Level level;
@@ -48,12 +52,12 @@ public class User {
 		this.id = id;
 	}
 
-	public Optional<Integer> getAvatarId() {
-		return Optional.ofNullable(this.avatarId);
+	public Optional<Post> getAvatar() {
+		return Optional.ofNullable(this.avatar);
 	}
 
-	public void setAvatarId(Integer avatarId) {
-		this.avatarId = avatarId;
+	public void setAvatar(Post avatar) {
+		this.avatar = avatar;
 	}
 
 	public Timestamp getCreatedAt() {
