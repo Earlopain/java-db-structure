@@ -93,7 +93,6 @@ CREATE TABLE posts (
 	rating_id int4 NOT NULL,
 	approver_id int4 NULL,
 	uploader_id int4 NOT NULL,
-	parent_id int4 NULL,
 	md5 bpchar(32) NOT NULL,
 	width int4 NOT NULL,
 	height int4 NOT NULL,
@@ -111,8 +110,7 @@ CREATE TABLE posts (
 	CONSTRAINT posts_fk FOREIGN KEY (extension_id) REFERENCES extension(id),
 	CONSTRAINT posts_fk_1 FOREIGN KEY (rating_id) REFERENCES ratings(id),
 	CONSTRAINT posts_fk_2 FOREIGN KEY (approver_id) REFERENCES users(id),
-	CONSTRAINT posts_fk_3 FOREIGN KEY (uploader_id) REFERENCES users(id),
-	CONSTRAINT posts_fk_4 FOREIGN KEY (parent_id) REFERENCES posts(id)
+	CONSTRAINT posts_fk_3 FOREIGN KEY (uploader_id) REFERENCES users(id)
 );
 
 -- DROP TABLE post_sources;

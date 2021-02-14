@@ -41,10 +41,6 @@ public class Post {
 	@JoinColumn(name = "uploader_id")
 	private User uploader;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "parent_id")
-	private Post parent;
-
 	private String md5;
 
 	private Integer width;
@@ -74,6 +70,11 @@ public class Post {
 	private String description;
 
 	private Float duration;
+
+	@ManyToOne
+	@JoinTable(name = "post_children", joinColumns = { @JoinColumn(name = "child_id", referencedColumnName = "id") }, inverseJoinColumns = {
+			@JoinColumn(name = "post_id", referencedColumnName = "id") })
+	private Post parent;
 
 	@ManyToMany
 	@JoinTable(name = "post_children", joinColumns = { @JoinColumn(name = "post_id", referencedColumnName = "id") }, inverseJoinColumns = {
