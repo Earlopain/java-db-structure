@@ -92,7 +92,7 @@ CREATE TABLE posts (
 	extension_id int4 NOT NULL,
 	rating_id int4 NOT NULL,
 	approver_id int4 NULL,
-	uploader_id int4 NOT NULL,
+	uploader_id int4 NULL,
 	md5 bpchar(32) NOT NULL,
 	width int4 NOT NULL,
 	height int4 NOT NULL,
