@@ -1,5 +1,6 @@
 package net.c5h8no4na.entity.e621;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,8 @@ import net.c5h8no4na.entity.e621.enums.Level;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Integer id;

@@ -1,5 +1,6 @@
 package net.c5h8no4na.entity.e621;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,8 @@ import net.c5h8no4na.entity.e621.enums.TagType;
 
 @Entity
 @Table(name = "tags")
-public class Tag {
+public class Tag implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Integer id;

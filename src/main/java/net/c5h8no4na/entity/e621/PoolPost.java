@@ -1,5 +1,7 @@
 package net.c5h8no4na.entity.e621;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -8,7 +10,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pool_posts")
-public class PoolPost {
+public class PoolPost implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Integer id;

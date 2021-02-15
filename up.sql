@@ -118,7 +118,7 @@ CREATE TABLE posts (
 CREATE TABLE post_sources (
 	id int4 NOT NULL DEFAULT nextval('post_sources_id_seq'::regclass),
 	post_id int4 NOT NULL,
-	"source" varchar NOT NULL,
+	url varchar NOT NULL,
 	CONSTRAINT post_sources_pk PRIMARY KEY (id),
 	CONSTRAINT post_sources_fk FOREIGN KEY (post_id) REFERENCES posts(id)
 );

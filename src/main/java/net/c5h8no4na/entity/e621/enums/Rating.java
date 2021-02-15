@@ -31,7 +31,7 @@ public enum Rating {
 		case "e":
 			return Optional.of(Rating.EXPLICIT);
 		default:
-			return Stream.of(Rating.values()).filter(e -> e.name().toLowerCase().equals(input.toLowerCase())).findFirst();
+			return Stream.of(Rating.values()).filter(e -> e.name().equalsIgnoreCase(input)).findFirst();
 		}
 	}
 }

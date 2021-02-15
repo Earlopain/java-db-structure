@@ -1,5 +1,6 @@
 package net.c5h8no4na.entity.e621;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,8 @@ import net.c5h8no4na.entity.e621.enums.Rating;
 
 @Entity
 @Table(name = "posts")
-public class Post {
+public class Post implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private Integer id;

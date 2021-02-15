@@ -1,5 +1,7 @@
 package net.c5h8no4na.entity.e621;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,13 +12,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "post_sources")
-public class Source {
+public class Source implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String source;
+	private String url;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Post post;
@@ -29,12 +32,12 @@ public class Source {
 		this.id = id;
 	}
 
-	public String getSource() {
-		return this.source;
+	public String getUrl() {
+		return this.url;
 	}
 
-	public void setSource(String source) {
-		this.source = source;
+	public void setSource(String url) {
+		this.url = url;
 	}
 
 	public Post getPost() {
