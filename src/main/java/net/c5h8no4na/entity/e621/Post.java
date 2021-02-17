@@ -76,6 +76,7 @@ public class Post implements Serializable {
 	@ManyToOne
 	@JoinTable(name = "post_children", joinColumns = { @JoinColumn(name = "child_id", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "post_id", referencedColumnName = "id") })
+	@Column(updatable = false, insertable = false)
 	private Post parent;
 
 	@ManyToMany
@@ -176,10 +177,6 @@ public class Post implements Serializable {
 		return Optional.ofNullable(this.parent);
 	}
 
-	public void setParent(Post parent) {
-		this.parent = parent;
-	}
-
 	public Rating getRating() {
 		return this.rating;
 	}
@@ -268,14 +265,12 @@ public class Post implements Serializable {
 
 	public Post addChild(Post child) {
 		getChildren().add(child);
-		child.setParent(child);
 
 		return child;
 	}
 
 	public Post removeChild(Post child) {
 		getChildren().remove(child);
-		child.setParent(null);
 
 		return child;
 	}
