@@ -4,36 +4,26 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public enum Extension {
-	JPG(1),
-	PNG(2),
-	WEBM(3),
-	GIF(4),
-	SWF(5);
+	JPG(1, "image/jpeg"),
+	PNG(2, "image/png"),
+	WEBM(3, "video/webm"),
+	GIF(4, "image/gif"),
+	SWF(5, "application/x-shockwave-flash");
 
-	private Integer id;
+	private final Integer id;
+	private final String mediaType;
 
-	Extension(Integer id) {
+	Extension(Integer id, String mediaType) {
 		this.id = id;
+		this.mediaType = mediaType;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public String toMediaType() {
-		switch (this) {
-		case JPG:
-			return "image/jpeg";
-		case PNG:
-			return "image/png";
-		case WEBM:
-			return "video/webm";
-		case GIF:
-			return "image/gif";
-		case SWF:
-			return "application/x-shockwave-flash";
-		}
-		return null;
+	public String getMediaType() {
+		return mediaType;
 	}
 
 	public static Optional<Extension> from(Integer id) {
