@@ -74,9 +74,9 @@ public class Post implements Serializable {
 	private Float duration;
 
 	@ManyToOne
-	@JoinTable(name = "post_children", joinColumns = { @JoinColumn(name = "child_id", referencedColumnName = "id") }, inverseJoinColumns = {
-			@JoinColumn(name = "post_id", referencedColumnName = "id") })
-	@Column(updatable = false, insertable = false)
+	@JoinTable(name = "post_children", joinColumns = {
+			@JoinColumn(name = "child_id", referencedColumnName = "id", insertable = false, updatable = false) }, inverseJoinColumns = {
+					@JoinColumn(name = "post_id", referencedColumnName = "id", insertable = false, updatable = false) })
 	private Post parent;
 
 	@ManyToMany
