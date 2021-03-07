@@ -31,7 +31,8 @@ public enum Extension {
 	}
 
 	public static Optional<Extension> from(String input) {
-		return Stream.of(Extension.values()).filter(e -> e.name().equalsIgnoreCase(input)).findFirst();
+		return Stream.of(Extension.values()).filter(e -> input.equalsIgnoreCase(e.name()) || input.equalsIgnoreCase("del." + e.name()))
+				.findFirst();
 	}
 
 }
