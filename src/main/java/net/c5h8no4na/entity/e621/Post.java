@@ -73,12 +73,6 @@ public class Post implements Serializable {
 
 	private Float duration;
 
-	@ManyToOne
-	@JoinTable(name = "post_children", joinColumns = {
-			@JoinColumn(name = "child_id", referencedColumnName = "id", insertable = false, updatable = false) }, inverseJoinColumns = {
-					@JoinColumn(name = "post_id", referencedColumnName = "id", insertable = false, updatable = false) })
-	private Post parent;
-
 	@ManyToMany
 	@JoinTable(name = "post_children", joinColumns = { @JoinColumn(name = "post_id", referencedColumnName = "id") }, inverseJoinColumns = {
 			@JoinColumn(name = "child_id", referencedColumnName = "id") })
@@ -171,10 +165,6 @@ public class Post implements Serializable {
 
 	public void setMd5(String md5) {
 		this.md5 = md5;
-	}
-
-	public Optional<Post> getParent() {
-		return Optional.ofNullable(this.parent);
 	}
 
 	public Rating getRating() {
